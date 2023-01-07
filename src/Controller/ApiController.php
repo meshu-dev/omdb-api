@@ -31,4 +31,13 @@ class ApiController extends AbstractController
 
         return $this->json(['data' => $result]);
     }
+
+    #[Route('/title/{title}', name: 'getByTitle', methods: ['GET'])]
+    public function getByTitle(string $id): JsonResponse
+    {
+        // TODO
+        //$result = $this->omdbService->getByTitle($title);
+
+        return $this->json(['data' => $result]);
+    }
 }
