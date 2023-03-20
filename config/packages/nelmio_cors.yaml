@@ -11,6 +11,7 @@ nelmio_cors:
         forced_allow_origin_value: ~
     paths:
         '^/':
+            origin_regex: true
             allow_credentials: true
             allow_origin: ['%env(CORS_ALLOW_ORIGIN)%']
             allow_headers: ['X-Custom-Auth', 'Content-Type', 'Authorization']
