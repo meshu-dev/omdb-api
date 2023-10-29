@@ -3,6 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\{
+    HomeController,
+    OmdbController
+};
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::group(['prefix' => 'omdb'], function ($router) {
+    Route::get('/search/{term}', [OmdbController::class, 'search']);
+    Route::get('/{id}', [OmdbController::class, 'getItem']);
 });
